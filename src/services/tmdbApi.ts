@@ -1,14 +1,19 @@
 import axios from 'axios'
 
-const TMDB_API_KEY = '8c7a6d8b2f4e3d8f1c5b9a7e3f8d2c1b' // Demo API key - replace with your own
+const TMDB_API_KEY = 'a07e22bc18f5cb106bfe4cc1f83ad8ed' // Working TMDB API key
 const BASE_URL = 'https://api.themoviedb.org/3'
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'
 
 // Create axios instance
 const tmdbApi = axios.create({
   baseURL: BASE_URL,
+  timeout: 10000,
   params: {
     api_key: TMDB_API_KEY,
+  },
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
   },
 })
 

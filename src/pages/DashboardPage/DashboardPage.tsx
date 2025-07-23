@@ -84,11 +84,18 @@ const DashboardPage: React.FC = () => {
   }
 
   if (error) {
+    console.error('Dashboard Movies API Error:', error)
     return (
       <div className="container mt-5">
         <div className="alert alert-danger text-center">
           <h4>Error loading movies</h4>
-          <p>Please try again later or check your internet connection.</p>
+          <p>Unable to fetch movies from TMDB API. This might be due to API rate limits or network issues.</p>
+          <button 
+            className="btn btn-primary mt-2" 
+            onClick={() => window.location.reload()}
+          >
+            Retry
+          </button>
         </div>
       </div>
     )
